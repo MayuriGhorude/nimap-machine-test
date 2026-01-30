@@ -1,0 +1,46 @@
+<h2>Category</h2>
+
+<input [(ngModel)]="catName" placeholder="Category name">
+<button (click)="addCategory()">Add</button>
+
+<hr>
+
+<h2>Add Product</h2>
+
+<input [(ngModel)]="prodName" placeholder="Product name">
+
+<select [(ngModel)]="catId">
+<option *ngFor="let c of categories" [value]="c.id">
+{{c.name}}
+</option>
+</select>
+
+<button (click)="addProduct()">Add Product</button>
+
+<hr>
+
+<h2>Product List</h2>
+
+<table border="1" cellpadding="8">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Cat ID</th>
+<th>Category</th>
+<th>Action</th>
+</tr>
+
+<tr *ngFor="let p of products">
+<td>{{p.ProductId}}</td>
+<td>{{p.ProductName}}</td>
+<td>{{p.CategoryId}}</td>
+<td>{{p.CategoryName}}</td>
+<td>
+<button (click)="removeProduct(p.ProductId)">Delete</button>
+</td>
+</tr>
+</table>
+
+<br>
+
+<button (click)="next()">Next Page</button>
